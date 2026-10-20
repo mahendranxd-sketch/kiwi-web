@@ -1,0 +1,228 @@
+.problem {
+  border-top: 1px solid var(--line);
+}
+
+.problem__story {
+  margin-top: var(--s-6);
+  font-size: clamp(1.75rem, 3.7vw, 3.35rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  font-weight: 450;
+  max-width: 1100px;
+  text-wrap: pretty;
+}
+
+/* Interactive places inside the sentence */
+.frag {
+  position: relative;
+  display: inline;
+}
+
+.frag__btn {
+  display: inline;
+  font-weight: 500;
+  color: var(--ink);
+  background-image: linear-gradient(var(--kiwi-wash), var(--kiwi-wash));
+  background-size: 100% 0.42em;
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+  padding: 0 0.06em;
+  cursor: pointer;
+  transition: background-size 0.35s var(--ease-out);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.frag[data-open="true"] .frag__btn,
+.frag__btn:hover {
+  background-size: 100% 100%;
+}
+
+.frag__btn:focus-visible {
+  outline-offset: 2px;
+}
+
+.frag__pop {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  z-index: 10;
+  translate: -50% 6px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-out), translate 0.3s var(--ease-out), visibility 0s linear 0.2s;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+
+.frag[data-open="true"] .frag__pop {
+  opacity: 1;
+  visibility: visible;
+  translate: -50% 0;
+  transition-delay: 0s;
+}
+
+/* Fragment previews — each borrows the shape of where it lives */
+.pv {
+  display: block;
+  width: max-content;
+  max-width: min(320px, 80vw);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-pop);
+  padding: 12px 14px;
+  color: var(--ink-2);
+}
+
+.pv--tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+}
+.pv--tabs span {
+  font-size: 12.5px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--muted);
+}
+.pv--tabs span[data-active="true"] {
+  background: var(--bg-sunk);
+  color: var(--ink);
+}
+
+.pv--sticky {
+  background: var(--sticky);
+  border-color: var(--sticky-line);
+  border-radius: 3px;
+  rotate: -2deg;
+  font-size: 15px;
+  padding: 16px 18px 20px;
+  color: var(--sticky-ink);
+}
+
+.pv--memo {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+}
+.pv__play {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 9px;
+}
+.pv__wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 22px;
+}
+.pv__wave i {
+  flex: 1;
+  border-radius: 1px;
+  background: var(--line-strong);
+}
+.pv__time {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.pv__cap {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.pv--mail {
+  display: grid;
+  gap: 2px;
+  width: 290px;
+}
+.pv__from {
+  font-size: 12px;
+  color: var(--muted);
+}
+.pv__subj {
+  font-weight: 500;
+  color: var(--ink);
+}
+.pv__body {
+  font-size: 13px;
+  color: var(--muted);
+}
+.pv__body mark {
+  background: var(--kiwi-wash);
+  color: var(--ink);
+  border-radius: 3px;
+  padding: 0 3px;
+}
+
+.pv--file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pv--file small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+.pv__doc {
+  width: 28px;
+  height: 34px;
+  border-radius: 4px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(135deg, transparent 70%, var(--bg-sunk) 70%);
+  position: relative;
+}
+.pv__doc::after {
+  content: "PDF";
+  position: absolute;
+  left: 3px;
+  bottom: 4px;
+  font-size: 7px;
+  font-family: var(--mono);
+  color: var(--p-clay);
+}
+
+.problem__coda {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: var(--s-7);
+  margin-top: clamp(56px, 8vw, 112px);
+  align-items: end;
+}
+
+.problem__note {
+  font-size: var(--fs-small);
+  max-width: 36ch;
+}
+
+@media (max-width: 760px) {
+  .problem__coda {
+    grid-template-columns: 1fr;
+    gap: var(--s-4);
+  }
+  .frag__pop {
+    left: 0;
+    translate: 0 6px;
+  }
+  .frag[data-open="true"] .frag__pop {
+    translate: 0 0;
+  }
+}

@@ -1,0 +1,28 @@
+.kiwi-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.kiwi-mark__word {
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.kiwi-mark__seeds {
+  transform-origin: 16px 16px;
+  transition: transform 0.7s var(--ease-out);
+}
+
+a:hover .kiwi-mark__seeds,
+.kiwi-mark:hover .kiwi-mark__seeds {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kiwi-mark__seeds {
+    transition: none;
+  }
+}

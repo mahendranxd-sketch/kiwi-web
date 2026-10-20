@@ -1,0 +1,68 @@
+.bigger {
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+}
+
+.bigger__head {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  gap: var(--s-7);
+  align-items: end;
+}
+
+.bigger__title {
+  font-size: clamp(3rem, 9vw, 8.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+
+.bigger__title em {
+  font-style: normal;
+  color: var(--kiwi-ink);
+  /* the extra air in the words is the point */
+  letter-spacing: 0.02em;
+}
+
+.bigger__day {
+  margin-top: clamp(64px, 9vw, 128px);
+  padding: clamp(18px, 3vw, 36px);
+  border-radius: var(--r-xl);
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+.bigger__outcomes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-6);
+  margin-top: clamp(48px, 6vw, 88px);
+}
+
+.bigger__outcomes li {
+  border-top: 1px solid var(--ink);
+  padding-top: var(--s-4);
+}
+
+.bigger__n {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.bigger__outcomes p {
+  margin-top: var(--s-3);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+@media (max-width: 860px) {
+  .bigger__head,
+  .bigger__outcomes {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,14 @@
+# dependencies & build output
+node_modules/
+dist/
+
+# local AI tooling (not part of the site)
+.agents/
+.aider-desk/
+skills-lock.json
+
+# OS / editor
+.DS_Store
+*.log
+.vscode/
+.idea/

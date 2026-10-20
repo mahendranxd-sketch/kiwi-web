@@ -1,0 +1,115 @@
+.proof__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  margin-bottom: clamp(48px, 6vw, 88px);
+}
+
+.proof__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--ink);
+}
+
+.proof__col {
+  padding: var(--s-6) var(--s-6) 0 0;
+}
+
+.proof__col + .proof__col {
+  padding-left: var(--s-6);
+  border-left: 1px solid var(--line);
+}
+
+.proof__label {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--s-5);
+}
+
+.proof__item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+}
+
+.proof__mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--kiwi-wash);
+  color: var(--kiwi-ink);
+}
+
+.proof__mark--no {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  position: relative;
+}
+
+.proof__mark--no::after {
+  content: "";
+  width: 9px;
+  height: 1.5px;
+  background: var(--muted);
+}
+
+.proof__item:not(.proof__item--yes) {
+  color: var(--ink-2);
+}
+
+.proof__logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-7);
+  align-items: center;
+  margin-top: var(--s-8);
+  opacity: 0.7;
+}
+
+.proof__quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-5);
+  margin-top: var(--s-8);
+}
+
+.proof__quote {
+  margin: 0;
+  padding: var(--s-5);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.proof__quote blockquote {
+  margin: 0 0 var(--s-4);
+  font-size: 1.1rem;
+  letter-spacing: -0.015em;
+}
+
+.proof__quote figcaption {
+  font-size: var(--fs-small);
+}
+
+@media (max-width: 760px) {
+  .proof__grid {
+    grid-template-columns: 1fr;
+  }
+  .proof__col,
+  .proof__col + .proof__col {
+    padding: var(--s-6) 0 0;
+    border-left: 0;
+  }
+}

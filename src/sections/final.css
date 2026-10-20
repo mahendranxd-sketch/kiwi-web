@@ -1,0 +1,110 @@
+.final {
+  padding-block: clamp(120px, 16vw, 220px);
+}
+
+.final__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.final__mark {
+  margin-bottom: clamp(28px, 4vw, 48px);
+  line-height: 0;
+}
+
+.final__title {
+  font-size: clamp(2.8rem, 7.4vw, 6.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.final__chaos {
+  display: inline-flex;
+}
+
+.final__chaos > span {
+  display: inline-block;
+  transform: translate(var(--x), var(--y)) rotate(var(--r));
+  transition: transform 0.9s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.final__chaos > span:nth-child(2) { transition-delay: 50ms; }
+.final__chaos > span:nth-child(3) { transition-delay: 100ms; }
+.final__chaos > span:nth-child(4) { transition-delay: 150ms; }
+.final__chaos > span:nth-child(5) { transition-delay: 200ms; }
+
+.final__chaos[data-tidy="true"] > span {
+  transform: none;
+}
+
+.final__try {
+  width: min(620px, 100%);
+  margin-top: clamp(40px, 5vw, 64px);
+  text-align: left;
+}
+
+.final__first {
+  margin-top: var(--s-4);
+  animation: rise 0.5s var(--ease-out) both;
+}
+
+.final__task {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  margin-top: 8px;
+  padding: 0 14px 0 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+
+.final__task-title {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.final__first[data-done="true"] .final__task-title {
+  color: var(--faint);
+  text-decoration: line-through;
+}
+
+.final__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-4);
+  margin-top: var(--s-7);
+}
+
+.final .final__btn {
+  height: 58px;
+  padding-left: 26px;
+  font-size: 16px;
+}
+
+.final .final__btn .kw-mag__chip {
+  width: 42px;
+  height: 42px;
+}
+
+.final__reassure {
+  font-size: var(--fs-small);
+  max-width: 40ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .final__chaos > span {
+    transition: none;
+  }
+  .final__first {
+    animation: none;
+  }
+}

@@ -1,0 +1,87 @@
+.check {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: calc(var(--size) + 16px);
+  height: calc(var(--size) + 16px);
+  margin: -8px;
+  border-radius: 50%;
+}
+
+.check svg {
+  width: var(--size);
+  height: var(--size);
+  overflow: visible;
+}
+
+.check__ring {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+  transition: stroke var(--t-fast);
+}
+
+.check:hover .check__ring {
+  stroke: var(--kiwi);
+}
+
+.check__fill {
+  fill: var(--kiwi);
+  transform-origin: 10px 10px;
+  transform: scale(0);
+  transition: transform 0.38s var(--ease-out);
+}
+
+.check__tick {
+  fill: none;
+  stroke: var(--surface);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.3s var(--ease-out) 0.12s;
+}
+
+.check[data-checked="true"] .check__fill {
+  transform: scale(1);
+}
+
+.check[data-checked="true"] .check__tick {
+  stroke-dashoffset: 0;
+}
+
+.check:active svg {
+  transform: scale(0.88);
+  transition: transform 0.1s;
+}
+
+.check__burst {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.check__burst i {
+  grid-area: 1 / 1;
+  width: 4px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--seed);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.check__burst i:nth-child(even) {
+  background: var(--kiwi);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .check__fill,
+  .check__tick {
+    transition: none;
+  }
+}

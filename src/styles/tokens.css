@@ -1,0 +1,131 @@
+:root {
+  /* Surfaces — warm paper, never pure white */
+  --bg: #f5f2ea;
+  --bg-sunk: #eeeadf;
+  --surface: #fcfbf7;
+  --surface-2: #f8f6f0;
+
+  /* Ink */
+  --ink: #171713;
+  --ink-2: #3b3a33;
+  --muted: #6b695f;
+  --faint: #9c998c;
+
+  /* Lines */
+  --line: #e2ddd0;
+  --line-strong: #cfc9b9;
+
+  /* Kiwi — a grown-up green. --kiwi-ink is the only green used for text. */
+  --kiwi: #6a9334;
+  --kiwi-ink: #46661d;
+  --kiwi-flesh: #a8c46a;
+  --kiwi-wash: #e5ebd3;
+  --seed: #1d1d18;
+  /* the logo keeps its own colours in every theme */
+  --kiwi-skin: #46661d;
+  --kiwi-core: #f5f2ea;
+
+  /* Paper sticky note (the one non-neutral surface, used for scattered notes) */
+  --sticky: #f1e7bf;
+  --sticky-line: #e3d6a3;
+  --sticky-ink: #4b4528;
+  --sticky-muted: #9a8d55;
+
+  /* Cursor spotlight in the product window */
+  --kiwi-glow: rgba(106, 147, 52, 0.07);
+
+  /* Project hues — muted, distinguishable without relying on color alone */
+  --p-kiwi: #6a9334;
+  --p-slate: #557590;
+  --p-clay: #b4683f;
+
+  /* Type */
+  --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --fs-display: clamp(3.1rem, 8.4vw, 8rem);
+  --fs-h2: clamp(2.3rem, 5.2vw, 4.6rem);
+  --fs-h3: clamp(1.5rem, 2.4vw, 2rem);
+  --fs-lead: clamp(1.1rem, 1.5vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+
+  /* Space (8pt) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 144px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --section: clamp(96px, 14vw, 200px);
+  --max: 1280px;
+
+  /* Shape */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r: 12px;
+  --r-lg: 18px;
+  --r-xl: 26px;
+
+  /* Elevation — borders first, shadows only to separate layers */
+  --shadow-window: 0 1px 0 rgba(23, 23, 19, 0.04), 0 24px 60px -28px rgba(40, 36, 20, 0.28),
+    0 2px 6px -2px rgba(40, 36, 20, 0.08);
+  --shadow-xs: 0 1px 2px rgba(40, 36, 20, 0.1);
+  --shadow-card: 0 6px 18px -10px rgba(40, 36, 20, 0.25);
+  --shadow-pop: 0 10px 30px -12px rgba(40, 36, 20, 0.3), 0 1px 3px rgba(40, 36, 20, 0.1);
+
+  /* Motion (mirrors src/lib/motion.ts) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 180ms;
+  --t-base: 340ms;
+
+  /* Variables consumed by the portable (Framer) components */
+  --kw-ink: var(--ink);
+  --kw-paper: var(--bg);
+  --kw-accent: var(--kiwi);
+  --kw-line: var(--line);
+  --kw-surface: var(--surface);
+  --kw-muted: var(--muted);
+}
+
+/*
+ * Dark theme, scoped to a section. Re-points the same tokens, so every
+ * component inside (marks, tags, links, focus rings) follows automatically.
+ * Text colors are checked against --bg for WCAG AA.
+ */
+.theme-dark {
+  --bg: #141411;
+  --bg-sunk: #1b1b17;
+  --surface: #1e1e1a;
+  --surface-2: #23231e;
+
+  --ink: #f2efe6;
+  --ink-2: #d8d4c8;
+  --muted: #a39f91;
+  --faint: #8a877c;
+
+  --line: #2f2e28;
+  --line-strong: #44423a;
+
+  --kiwi: #8cb44e;
+  --kiwi-ink: #b6d37c;
+  --kiwi-wash: #27301d;
+
+  --shadow-pop: 0 10px 30px -12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  background: var(--bg);
+  color: var(--ink);
+  color-scheme: dark;
+}
+
+.theme-dark ::selection {
+  background: var(--kiwi);
+  color: #141411;
+}
